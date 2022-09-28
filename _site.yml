@@ -1,0 +1,8 @@
+name: "Supplemental Materials DSEM"
+output_dir: "docs"
+navbar:
+  title: " "
+left:
+  - text: "Introduction"
+    href: SuppMat.html
+  
