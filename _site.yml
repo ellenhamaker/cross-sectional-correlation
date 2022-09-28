@@ -1,8 +1,8 @@
-name: "Supplemental Materials DSEM"
+name: "Supplemantary Materials for: The Curious Case of the Cross-Sectional Correlation"
 output_dir: "docs"
 navbar:
   title: " "
 left:
-  - text: "Introduction"
-    href: SuppMat.html
+  - text: ""
+    href: index.html
   
