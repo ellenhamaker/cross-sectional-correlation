@@ -1,5 +1,5 @@
 ---
-title: "Supplemantary Materials for: The Curious Case of the Cross-Sectional Correlation"
+title: "The Curious Case of the Cross-Sectional Correlation -- Supplemantary Materials"
 author: "Ellen Hamaker"
 date: "2022"
 mainfont: Arial
@@ -25,7 +25,7 @@ This serves as supporting materials to the manuscript entitled ``The Curious Cas
 
 Peter Molenaar showed that when ergodicity is absent--meaning that individuals are characterized by different means, variances, covariances, et cetera--the results obtained from cross-sectional data will not adequately reflect the patterns that exist at the individual level. 
 
-Researchers inspired by Molenaar's work have considered how the cross-sectional correlation is related to the correlation of a single individual, which I refer to as the person-specific correlation. How these two correlations are related, is explained and illustrated with several numerical examples below. The outline is as follows:
+Researchers inspired by Molenaar's work have considered how the cross-sectional correlation is related to the correlation of a single individual, which I refer to as the person-specific correlation. How these two correlations are related is explained in detail in the paper I wrote. Below the six numerical examples provided in the paper are presented in more detail. Specifically, the outline here is as follows:
 
 * An intuitive presentation of the two correlations of interest
 
