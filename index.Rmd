@@ -1,5 +1,5 @@
 ---
-title: "The Curious Case of the Cross-Sectional Correlation -- Supplemantary Materials"
+title: "Supplemantary Materials for: The Curious Case of the Cross-Sectional Correlation"
 author: "Ellen Hamaker"
 date: "2022"
 mainfont: Arial
@@ -25,7 +25,7 @@ This serves as supporting materials to the manuscript entitled ``The Curious Cas
 
 Peter Molenaar showed that when ergodicity is absent--meaning that individuals are characterized by different means, variances, covariances, et cetera--the results obtained from cross-sectional data will not adequately reflect the patterns that exist at the individual level. 
 
-Researchers inspired by Molenaar's work have considered how the cross-sectional correlation is related to the correlation of a single individual, which I refer to as the person-specific correlation. How these two correlations are related is explained in detail in the paper I wrote. Below the six numerical examples provided in the paper are presented in more detail. Specifically, the outline here is as follows:
+Researchers inspired by Molenaar's work have considered how the cross-sectional correlation is related to the correlation of a single individual, which I refer to as the person-specific correlation. How these two correlations are related, is explained and illustrated with several numerical examples below. The outline is as follows:
 
 * An intuitive presentation of the two correlations of interest
 
@@ -78,9 +78,9 @@ This expression is well known in certain parts of the scientific literature. How
 * The weights (which are based on the intracless correlations) do not always add up to one, and as a result, the cross-sectional correlation $\rho$ may lie closer to 0 than both the between-person correlation $\rho_B$ and the within-person correlation $\rho_W$.
 
 
-# Summary of approach
-
-Here I will show how to derive the value of the average person-specific correlation $\kappa$, the within-person correlation $\rho_W$, and the cross-sectional correlation $\rho$, using the analytical results presented in the paper. 
+# General approach
+In the paper, six examples are given that illustrate how these two curiosities may affect the results. The examples are based on chosing certain values for some of the parameters, and using analytical results presented in the paper to compute the other parameters. In addition, data are simulated from which an estimate of the cross-sectional correlation is obtained. A file only containing the R-code that is used below can be found 
+[here](https://ellenhamaker.github.io/cross-sectional-correlation/RcodeCorrelation.R).
 
 To create heterogeneity in the population with respect to the within-person distribution, a scenario is used in which the total population consists of two subpopulations that both make up exactly half of the population. In this scenario, we only have to specify two sets of parameters for the within-person part (i.e., two values for the person-specific covariance, and two values for the person-specific variances). The mean differences between persons will come from a multivariate normal distribution.
 
