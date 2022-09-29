@@ -1,5 +1,5 @@
-# This file contains the R-code for the six examples in the paper "The CUrious
-# Case of the Cross-sectional Correlation" by Ellen Hamaker.
+# This file contains the R-code for the six examples in the paper "The Curious
+# Case of the Cross-Sectional Correlation" by Ellen Hamaker (2022, for MBR).
 # For each example, specific parameter values are chosen, which are used to
 # compute other parameters, using the analytical results from the paper.
 # Furthermore, for each example data is generated for 1,000 persons and 1,000

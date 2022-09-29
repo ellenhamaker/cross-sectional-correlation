@@ -351,8 +351,8 @@ Correlation – Supplementary Materials</h1>
 
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
-<p>This serves as supporting materials to the manuscript entitled ``The
-Curious Case of the Cross-Sectional Correlation’’, which I wrote for the
+<p>This serves as supporting materials to the manuscript entitled “The
+Curious Case of the Cross-Sectional Correlation”, which I wrote for the
 special issue of Multivariate Behavioral Research in honor of Peter
 Molenaar’s work.</p>
 <p>Peter Molenaar showed that when ergodicity is absent–meaning that
@@ -376,8 +376,8 @@ and simulated data from which specific correlations of interest are
 estimated</p></li>
 </ul>
 </div>
-<div id="two-corrrelations-of-interest" class="section level1">
-<h1>Two corrrelations of interest</h1>
+<div id="two-correlations-of-interest" class="section level1">
+<h1>Two correlations of interest</h1>
 <p>To get an initial understanding of the difference between the
 cross-sectional correlation and the person-specific correlation, it is
 helpful to make use of Cattell’s databox. Cattell’s databox shows that
@@ -416,18 +416,18 @@ imagine that different individuals may be characterized by different
 person-specific correlations. Hence, in general the person-specific
 correlation will not be identical to the cross-sectional
 correlation.</p>
-<p>In the paper, I derive the following expression for the
-cross-sectional correlation</p>
+<p>In the paper, I show how the following expression for the
+cross-sectional correlation can be derived:</p>
 <p><span class="math display">\[ \rho = \eta_{BX}\eta_{BY}\rho_B +
 \eta_{WX}\eta_{WY}\rho_W\]</span></p>
 <p>where</p>
 <ul>
 <li><p><span class="math inline">\(\eta^2_{BX}\)</span> is the
 intraclass correlation of <span class="math inline">\(X\)</span>
-(proportion of stable differences between persons on X)</p></li>
+(proportion of stable differences between persons in X)</p></li>
 <li><p><span class="math inline">\(\eta^2_{BY}\)</span> is the
 intraclass correlation of <span class="math inline">\(Y\)</span>
-(proportion of stable differences between persons on X)</p></li>
+(proportion of stable differences between persons in Y)</p></li>
 <li><p><span class="math inline">\(\rho_B\)</span> is the between-person
 correlation (correlation of person-specific means)</p></li>
 <li><p><span class="math inline">\(\eta^2_{WX} = 1 -
@@ -442,21 +442,33 @@ persons)</p></li>
 correlation (correlation across people of temporal deviation from
 person-specific means)</p></li>
 </ul>
-<p>This expression is well known in certain parts of the scientific
-literature. However, despite the simple appearance of this expression,
-in the paper I show two curiosities associated with it:</p>
-<ul>
-<li><p>The within-person correlation <span
-class="math inline">\(\rho_W\)</span> is <em>not</em> the same as the
-average person-specific correlation; it is only the same under specific
-circumstances (such as ergodicity)</p></li>
-<li><p>The weights (which are based on the intracless correlations) do
-not always add up to one, and as a result, the cross-sectional
-correlation <span class="math inline">\(\rho\)</span> may lie closer to
-0 than both the between-person correlation <span
+</div>
+<div id="two-curiosities" class="section level1">
+<h1>Two curiosities</h1>
+<p>The expression for the cross-sectional correlation is well known in
+certain parts of the scientific literature. However, despite the simple
+appearance of this expression, there are two curiosities associated with
+it that I present in the paper.</p>
+<p>The first curiosity is concerned with the difference between the
+within-person correlation and the average person-specific correlation,
+that is,</p>
+<p><span class="math display">\[\rho_W =
+\frac{E[cov(X,Y|P)]}{\sqrt{E[var(X|P)]}]\sqrt{E[var(Y|P)]}} \;\;\;\;\;
+\mathrm{versus} \;\;\;\;\;\;\;\kappa = E\Biggl[
+\frac{cov(X,Y|P)}{\sqrt{var(X|P)}\sqrt{var(Y|P)}}\Biggr].\]</span></p>
+<p>These two correlations are only the same under specific circumstances
+(such as ergodicity).</p>
+<p>The second curiosity has to do with the weights (which are based on
+the intraclass correlations). Unless the intraclass correlations are the
+same for <span class="math inline">\(X\)</span> ad <span
+class="math inline">\(Y\)</span>, the two weights do not add up to one.
+Specifically, <span class="math display">\[0 \leq \eta_{BX}\eta_{BY} +
+\eta_{WX}\eta_{WY} \leq 1.\]</span> As a result of this, the
+cross-sectional correlation <span class="math inline">\(\rho\)</span>
+does not necessarily lie in between the between-person correlation <span
 class="math inline">\(\rho_B\)</span> and the within-person correlation
-<span class="math inline">\(\rho_W\)</span>.</p></li>
-</ul>
+<span class="math inline">\(\rho_W\)</span>, but may lie closer to zero
+than both of them.</p>
 </div>
 <div id="general-approach" class="section level1">
 <h1>General approach</h1>

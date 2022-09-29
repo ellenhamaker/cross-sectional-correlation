@@ -23,7 +23,7 @@ params:
 
 # Introduction
 
-This serves as supporting materials to the manuscript entitled ``The Curious Case of the Cross-Sectional Correlation'', which I wrote for the special issue of Multivariate Behavioral Research in honor of Peter Molenaar's work.
+This serves as supporting materials to the manuscript entitled "The Curious Case of the Cross-Sectional Correlation", which I wrote for the special issue of Multivariate Behavioral Research in honor of Peter Molenaar's work.
 
 Peter Molenaar showed that when ergodicity is absent--meaning that individuals are characterized by different means, variances, covariances, et cetera--the results obtained from cross-sectional data will not adequately reflect the patterns that exist at the individual level. 
 
@@ -36,7 +36,7 @@ Researchers inspired by Molenaar's work have considered how the cross-sectional 
 * Examples based on specific constellations of parameter values, and simulated data from which specific correlations of interest are estimated
 
 
-# Two corrrelations of interest
+# Two correlations of interest
 To get an initial understanding of the difference between the cross-sectional correlation and the person-specific correlation, it is helpful to make use of Cattell's databox. Cattell's databox shows that there are three dimensions in which we can sample: variables, persons, and time points. 
 
 Here we will consider only the latter two dimensions, while keeping the variables fixed: These are referred to as $X$ and $Y$. The databox then can be visualized as
@@ -54,16 +54,16 @@ When consider __single subject ($N=1$)__ data, we obtain a slice in the vertical
 
 When looking at the databox in this way, it is not difficult to imagine that different individuals may be characterized by different person-specific correlations. Hence, in general the person-specific correlation will not be identical to the cross-sectional correlation.
 
-In the paper, I derive the following expression for the cross-sectional correlation
+In the paper, I show how the following expression for the cross-sectional correlation can be derived:
 
 $$ \rho = \eta_{BX}\eta_{BY}\rho_B + \eta_{WX}\eta_{WY}\rho_W$$
 
 where
 
 
-* $\eta^2_{BX}$ is the intraclass correlation of $X$ (proportion of stable differences between persons on X)
+* $\eta^2_{BX}$ is the intraclass correlation of $X$ (proportion of stable differences between persons in X)
 
-* $\eta^2_{BY}$ is the intraclass correlation of $Y$ (proportion of stable differences between persons on X)
+* $\eta^2_{BY}$ is the intraclass correlation of $Y$ (proportion of stable differences between persons in Y)
 
 * $\rho_B$ is the between-person correlation (correlation of person-specific means)
 
@@ -73,11 +73,19 @@ where
 
 * $\rho_W$ is the within-person correlation (correlation across people of temporal deviation from person-specific means)
 
-This expression is well known in certain parts of the scientific literature. However, despite the simple appearance of this expression, in the paper I show two curiosities associated with it:
+# Two curiosities
 
-* The within-person correlation $\rho_W$ is *not* the same as the average person-specific correlation; it is only the same under specific circumstances (such as ergodicity)
+The expression for the cross-sectional correlation is well known in certain parts of the scientific literature. However, despite the simple appearance of this expression, there are two curiosities associated with it that I present in the paper.
 
-* The weights (which are based on the intracless correlations) do not always add up to one, and as a result, the cross-sectional correlation $\rho$ may lie closer to 0 than both the between-person correlation $\rho_B$ and the within-person correlation $\rho_W$.
+The first curiosity is concerned with the difference between the within-person correlation and the average person-specific correlation, that is,
+
+$$\rho_W = \frac{E[cov(X,Y|P)]}{\sqrt{E[var(X|P)]}]\sqrt{E[var(Y|P)]}} \;\;\;\;\; \mathrm{versus} \;\;\;\;\;\;\;\kappa = E\Biggl[ \frac{cov(X,Y|P)}{\sqrt{var(X|P)}\sqrt{var(Y|P)}}\Biggr].$$
+
+These two correlations are only the same under specific circumstances (such as ergodicity).
+
+The second curiosity has to do with the weights (which are based on the intraclass correlations). Unless the intraclass correlations are the same for $X$ ad $Y$, the two weights do not add up to one. Specifically,
+$$0 \leq \eta_{BX}\eta_{BY} + \eta_{WX}\eta_{WY} \leq 1.$$ 
+As a result of this, the cross-sectional correlation $\rho$ does not necessarily lie in between the between-person correlation $\rho_B$ and the within-person correlation $\rho_W$, but may lie closer to zero than both of them. 
 
 
 # General approach
