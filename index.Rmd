@@ -1,7 +1,7 @@
 ---
-title: "Supplemantary Materials for: The Curious Case of the Cross-Sectional Correlation"
+title: "The Curious Case of the Cross-Sectional Correlation -- Supplementary Materials"
 author: "Ellen Hamaker"
-date: "2022"
+date: "September, 2022"
 mainfont: Arial
 fontsize: 12pt
 urlcolor: blue
@@ -20,6 +20,8 @@ params:
   rcode: true
   answers: true
 ---
+
+# Introduction
 
 This serves as supporting materials to the manuscript entitled ``The Curious Case of the Cross-Sectional Correlation'', which I wrote for the special issue of Multivariate Behavioral Research in honor of Peter Molenaar's work.
 

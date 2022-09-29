@@ -1,16 +1,17 @@
 # This file contains the R-code for the six examples in the paper "The CUrious
 # Case of the Cross-sectional Correlation" by Ellen Hamaker.
-# For each exmaple, specifc parameter values are chosen, which are used to
+# For each example, specific parameter values are chosen, which are used to
 # compute other parameters, using the analytical results from the paper.
 # Furthermore, for each example data is generated for 1,000 persons and 1,000
 # time points. The data at the first time point (i.e., cross-sectional data set)
 # are used to estimate the cross-sectional correlation. 
-#
+
 # More information about the code and set-up can be found in the paper and at 
 # the accompanying website with supporting materials: 
 # https://ellenhamaker.github.io/cross-sectional-correlation/
 
-
+# Package needed for these code:
+library(mvtnorm)
 
 ###############################################################################
 ########################### EXAMPLE 1 #########################################
