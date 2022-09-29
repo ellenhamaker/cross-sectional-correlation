@@ -449,9 +449,9 @@ person-specific means)</p></li>
 certain parts of the scientific literature. However, despite the simple
 appearance of this expression, there are two curiosities associated with
 it that I present in the paper.</p>
-<p>The first curiosity is concerned with the difference between the
-within-person correlation (which is part of the expression for the
-cross-sectional correlation given above), and the average
+<p>The <strong>first curiosity</strong> is concerned with the difference
+between the within-person correlation (which is part of the expression
+for the cross-sectional correlation given above), and the average
 person-specific correlation (which is what we are interested in based on
 Cattell’s databox), that is,</p>
 <p><span class="math display">\[\rho_W =
@@ -460,11 +460,12 @@ Cattell’s databox), that is,</p>
 \frac{cov(X,Y|P)}{\sqrt{var(X|P)}\sqrt{var(Y|P)}}\Biggr].\]</span></p>
 <p>These two correlations are only the same under specific circumstances
 (such as ergodicity).</p>
-<p>The second curiosity has to do with the weights in the expression for
-the cross-sectional correlation given above. Unless the intraclass
-correlations are the same for <span class="math inline">\(X\)</span> ad
-<span class="math inline">\(Y\)</span>, these two weights do not add up
-to one. Specifically, <span class="math display">\[0 \leq
+<p>The <strong>second curiosity</strong> has to do with the weights in
+the expression for the cross-sectional correlation given above. Unless
+the intraclass correlations are the same for <span
+class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>, these two weights do not add up to
+one. Specifically, <span class="math display">\[0 \leq
 \eta_{BX}\eta_{BY} + \eta_{WX}\eta_{WY} \leq 1.\]</span> As a result of
 this, the cross-sectional correlation <span
 class="math inline">\(\rho\)</span> does not necessarily lie in between
@@ -895,7 +896,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of
@@ -1153,7 +1154,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of
@@ -1411,7 +1412,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of
@@ -1670,7 +1671,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of
@@ -1930,7 +1931,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of
@@ -2188,7 +2189,7 @@ for every time point separately. We therefore start with making matrices
 to contain these</p>
 <pre class="r"><code># Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW &lt;- matrix(,TP,2)
+hat.rhoW &lt;- matrix(,TP,1)
 hat.rho &lt;- matrix(,TP,1)</code></pre>
 <p>Next, for every time point, we compute the within-person component
 (using the estimated person means), and determine the correlation of

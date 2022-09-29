@@ -130,7 +130,7 @@ rhoB
 
 # Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW <- matrix(,TP,2)
+hat.rhoW <- matrix(,TP,1)
 hat.rho <- matrix(,TP,1)
 
 # Create matrices to contain estimates of the person-specific 
@@ -273,7 +273,7 @@ rhoB
 
 # Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW <- matrix(,TP,2)
+hat.rhoW <- matrix(,TP,1)
 hat.rho <- matrix(,TP,1)
 
 # Create matrices to contain estimates of the person-specific 
@@ -417,7 +417,7 @@ rhoB
 
 # Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW <- matrix(,TP,2)
+hat.rhoW <- matrix(,TP,1)
 hat.rho <- matrix(,TP,1)
 
 # Create matrices to contain estimates of the person-specific 
@@ -560,7 +560,7 @@ rhoB
 
 # Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW <- matrix(,TP,2)
+hat.rhoW <- matrix(,TP,1)
 hat.rho <- matrix(,TP,1)
 
 # Create matrices to contain estimates of the person-specific 
@@ -703,7 +703,7 @@ rhoB
 
 # Create matrices to contain estimates of the within-person correlation 
 # and the cross-sectional correlation
-hat.rhoW <- matrix(,TP,2)
+hat.rhoW <- matrix(,TP,1)
 hat.rho <- matrix(,TP,1)
 
 # Create matrices to contain estimates of the person-specific 
