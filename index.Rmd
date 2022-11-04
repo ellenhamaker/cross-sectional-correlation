@@ -77,7 +77,7 @@ where
 
 The expression for the cross-sectional correlation is well known in certain parts of the scientific literature. However, despite the simple appearance of this expression, there are two curiosities associated with it that I present in the paper.
 
-The __first curiosity__ is concerned with the difference between the within-person correlation (which is part of the expression for the cross-sectional correlation given above), and the average person-specific correlation (which is what we are interested in based on Cattell's databox), that is,
+The __first curiosity__ is concerned with the difference between the within-person correlation, which is part of the expression for the cross-sectional correlation given above, and the average person-specific correlation, which is what we are interested in based on Cattell's databox, that is,
 
 $$\rho_W = \frac{E[cov(X,Y|P)]}{\sqrt{E[var(X|P)]}]\sqrt{E[var(Y|P)]}} \;\;\;\;\; \mathrm{versus} \;\;\;\;\;\;\;\kappa = E\Biggl[ \frac{cov(X,Y|P)}{\sqrt{var(X|P)}\sqrt{var(Y|P)}}\Biggr].$$
 
@@ -89,7 +89,7 @@ As a result of this, the cross-sectional correlation $\rho$ does not necessarily
 
 
 # General approach
-In the paper, six examples are given that illustrate how these two curiosities may affect the results. The examples are based on chosing certain values for some of the parameters, and using analytical results presented in the paper to compute the other parameters. In addition, data are simulated from which an estimate of the cross-sectional correlation is obtained. A file only containing the R-code that is used below can be found 
+In the paper, seven examples are given that illustrate how these two curiosities combined may affect the results. The examples are based on chosing certain values for some of the parameters, and using analytical results presented in the paper to compute the other parameters. In addition, data are simulated from which an estimate of the cross-sectional correlation is obtained. A file only containing the R-code that is used below can be found 
 [here](https://github.com/ellenhamaker/cross-sectional-correlation/blob/main/RcodeCorrelation.R).
 
 To create heterogeneity in the population with respect to the within-person distribution, a scenario is used in which the total population consists of two subpopulations that both make up exactly half of the population. In this scenario, we only have to specify two sets of parameters for the within-person part (i.e., two values for the person-specific covariance, and two values for the person-specific variances). The mean differences between persons will come from a multivariate normal distribution.
@@ -1663,6 +1663,264 @@ hat.rho[1,1]
 
 ```
 
+
+# Example 7
+
+The within part of the final example is the same as that of Examples 1, 2, 5, and 6. The between-person correlation is equal to the within-person correlation here, and the intraclass correlations are equal to each other. 
+
+## Analytical part
+
+### Step 1
+
+In this example we have:
+
+| Quantity| Value |
+|:-----------|:----------------------------|
+$cov(X,Y|P)$ | 1 in all individuals
+$var(X|P)$ | 1.25 in half of the population; 5 in the other half
+$var(Y|P)$ | identical to $var(X|P)$|
+
+Including these in matrices, we get:
+
+```{r block2g, echo=T, eval=T, message=F, include=params$rcode}
+# Specify two person-specific covariance matrices for two subpopulations
+cov.mat1 <- matrix(c(1.25,1,1,1.25),2,2)
+cov.mat2 <- matrix(c(5,1,1,5),2,2)
+```
+
+
+From these we compute:
+
+```{r block3g, echo=T, eval=T, message=F, include=params$rcode}
+# The average person-specific correlation can be determined
+kappa1 <- cov.mat1[2,1]/(sqrt(cov.mat1[1,1])*sqrt(cov.mat1[2,2]))
+kappa2 <- cov.mat2[2,1]/(sqrt(cov.mat2[1,1])*sqrt(cov.mat2[2,2]))
+kappa <- (kappa1+kappa2)/2
+kappa
+```
+
+
+as well as:
+
+
+```{r block4g, echo=T, eval=T, message=F, include=params$rcode}
+# Determine the average person-specific variances and covariance
+var.wX <- (cov.mat1[1,1] + cov.mat2[1,1])/2
+var.wY <- (cov.mat1[2,2] + cov.mat2[2,2])/2
+cov.wXwY <- (cov.mat1[2,1]+cov.mat2[2,1])/2
+
+# From these the within-person correlation can be computed:
+rhoW <- cov.wXwY/(sqrt(var.wX)*sqrt(var.wY))
+rhoW
+```
+
+This already shows that $\kappa \neq \rho_W$, that is, the average person-specific correlation is not (always) the same as the within-person correlation $\rho_W$ from the expression for the cross-lagged correlation. 
+
+### Step 2
+For the between part we use the following values:
+
+| Quantity| Value |
+|:-----------|:----------------------------|
+$\eta^2_{BX}$ | 0.4
+$\eta^2_{BY}$ | 0.4
+$\rho_B$| $\rho_W$
+
+
+```{r block5g, echo=T, eval=T, message=F, include=params$rcode}
+# Specify the correlation at the between-person level
+# and choose the intraclass correlations for X and Y
+rhoB <- rhoW
+icc.X <- 0.4
+icc.Y <- 0.4
+```
+
+From these values, we can compute:
+
+```{r block6g, echo=T, eval=T, message=F, include=params$rcode}
+# Compute the between-person variances based on the icc's and the average 
+# person-specific variances
+var.bX <- icc.X*var.wX/(1-icc.X)
+var.bX
+var.bY <- icc.Y*var.wY/(1-icc.Y)
+var.bY
+
+# Compute the between-person covariance based on the between-person correlation
+# and the between-person variances
+cov.bXbY <- rhoB*sqrt(var.bX)*sqrt(var.bY)
+cov.bXbY
+
+# Place these values in a covariance matrix
+cov.mat.B <- matrix(c(var.bX,cov.bXbY,cov.bXbY,var.bY),2,2)
+```
+
+Now we can compute the value for the cross-sectional correlation:
+
+
+```{r block7g, echo=T, eval=T, message=F, include=params$rcode}
+# Compute the cross-sectional correlation
+rho <- sqrt(icc.X)*sqrt(icc.Y)*rhoB + sqrt(1-icc.X)*sqrt(1-icc.Y)*rhoW
+rho
+```
+
+
+## Simulate data
+Based on the parameter values defined above, we can now simulate data. 
+
+```{r block8g, echo=T, eval=T, message=F, include=params$rcode}
+set.seed(3962)
+
+# Total sample size
+N <- 1000   # number pf persons
+TP <- 1000   # number of time points
+```
+
+
+### Simulate BP components
+We start with simulating the person-specific means using the covariance and variances from the between-person components. We set the grand means to zero in this simulations. 
+
+```{r block9g, echo=T, eval=T, message=F, include=params$rcode}
+# Place the between-person covariance and variances in a matrix, and use this
+# to simulate the person-specific means (between-person components)
+cov.mat.B <- matrix(c(var.bX,cov.bXbY,cov.bXbY,var.bY),2,2)
+means.XY <- rmvnorm(N,mean = c(0,0),sigma = cov.mat.B)
+cov(means.XY) 
+cor(means.XY)
+```
+
+### Simulate WP components
+Here, we simulate the within-person components, and add the between-person component right away to get the actual scores. We do this per person using
+
+We start with creating matrices to save the scores on $X$ and $Y$; these can be thought of as slices from Cattell's databox.
+
+```{r block10g, echo=T, eval=T, message=F, include=params$rcode}
+# Create two matrices to contain the scores on X and Y 
+# for TP repeated measures (rows) and for N persons (columns)
+X <- matrix(,TP,N)
+Y <- matrix(,TP,N)
+
+```
+
+Next, we sample values for individuals from both subpopulations
+
+```{r block11g, echo=T, eval=T, message=F, include=params$rcode}
+# Create data for the first subpopulation
+for (i in 1:(N/2))
+{ Z <- rmvnorm(TP, mean = means.XY[i,], sigma = cov.mat1)
+  X[,i] <- Z[,1] 
+  Y[,i] <- Z[,2]
+}
+
+# Create data fro the second subpopulation
+for (i in ((N/2)+1):N)
+{ Z <- rmvnorm(TP, mean = means.XY[i,], sigma = cov.mat2)
+  X[,i] <- Z[,1]
+  Y[,i] <- Z[,2]
+}
+```
+
+
+## Analyze data
+Now that we have the data, we can analyze them in various ways. First, we will estimated the means per person and their correlation $\kappa_p$.To this end we need to create matrices that can contain these quantities 
+
+```{r block12g, echo=T, eval=T, message=F, include=params$rcode}
+# Create matrices to contain estimates of the person-specific 
+# means and correlations for N persons
+hat.means.XY <- matrix(,N,2)
+hat.kappa.p <- matrix(,N,1)
+```
+
+To obtain the estimated person-specific means and correlation, we make use of
+```{r block13g, echo=T, eval=T, message=F, include=params$rcode}
+# Create matrices to contain estimates of the person-specific 
+# means and correlations for N persons
+for (p in 1:N)
+{ Xp <- X[,p]
+  Yp <- Y[,p]
+  hat.means.XY[p,] <- c(mean(Xp),mean(Yp))
+  hat.kappa.p[p,1] <- cor(Xp,Yp)
+}
+# Average person-specific correlation:
+mean(hat.kappa.p)
+# Compare to true value:
+kappa
+# Histogram
+hist(hat.kappa.p, breaks=100, xlim=c(0,1))
+```
+
+
+
+Now we can estimate the average person-specific correlation 
+```{r block14g, echo=T, eval=T, message=F, include=params$rcode}
+# Average person-specific correlation:
+mean(hat.kappa.p)
+# Compare to true value:
+kappa
+```
+
+and the between-person correlation
+```{r block15g, echo=T, eval=T, message=F, include=params$rcode}
+# Between-person correlation 
+cor(hat.means.XY)
+# Compare to true value:
+rhoB
+```
+
+We can also estimate the within-person correlation $\rho_W$ and the cross-sectional correlation $\rho$; this can be done for every time point separately. We therefore start with making matrices to contain these 
+
+
+```{r block16g, echo=T, eval=T, message=F, include=params$rcode}
+# Create matrices to contain estimates of the within-person correlation 
+# and the cross-sectional correlation
+hat.rhoW <- matrix(,TP,1)
+hat.rho <- matrix(,TP,1)
+```
+
+Next, for every time point, we compute the within-person component (using the estimated person means), and determine the correlation of these across individuals (i.e., an estimate of $\rho_W$), and we estimate the cross-sectional correlation (i.e., $\rho$):
+
+```{r block17g, echo=T, eval=T, message=F, include=params$rcode}
+# Create matrices to contain estimates of the person-specific 
+# means and correlations for N persons
+for (t in 1:TP)
+{ Xt <- X[t,]
+  Yt <- Y[t,]
+  WXt <- X[t,] - hat.means.XY[,1]
+  WYt <- Y[t,] - hat.means.XY[,2]
+  hat.rhoW[t,] <- cor(WXt,WYt)
+  hat.rho[t,] <- cor(Xt,Yt)
+}
+# Average person-specific correlation:
+mean(hat.rhoW)
+mean(hat.rho)
+
+hist(hat.rhoW, breaks=20, xlim=c(0,1), 
+     main="Estimated WP correlation for TP occasions")
+abline(v=rhoW, col="red", lwd=2)
+hist(hat.rho, breaks=20, xlim=c(0,1), 
+     main="Estimated cross-sectional correlation for TP occasions")
+abline(v=rho, col="red", lwd=2)
+```
+
+The estimated cross-sectional correlation for the first wave is
+```{r block18g, echo=T, eval=T, message=F, include=params$rcode}
+# Cross-sectional correlation for the first wave (reported in the paper)
+hat.rho[1,1]
+
+```
+
+# Summary
+
+The seven examples considered above can be summarized as follows:
+
+
+| Example| Value |
+|:-----------|:----------------------------|
+1 | $\rho_W < \rho <\rho_B = \kappa$
+2 | $\rho < \rho_W <\rho_B = \kappa$
+3 | $\rho < \rho_W =\rho_B = \kappa$
+4 | $\rho < \rho_W <\rho_B = \kappa = \kappa_p$
+5 | $\rho = \rho_W < \kappa$ and $\rho_B$ does not exist
+6 | $\rho_B < \rho < \rho_W < \kappa$
+7 | $\rho = \rho_W = \rho_B < \kappa$
 
 
 
