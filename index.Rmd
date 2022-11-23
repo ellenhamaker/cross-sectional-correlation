@@ -23,7 +23,7 @@ params:
 
 # Introduction
 
-This serves as supporting materials to the manuscript entitled "The Curious Case of the Cross-Sectional Correlation", which I wrote for the special issue of Multivariate Behavioral Research in honor of Peter Molenaar's work. You can find the manuscript [here](https://ellenhamaker.github.io/cross-sectional-correlation/HamakerMBR.pdf).
+This serves as supporting materials to the manuscript entitled "The Curious Case of the Cross-Sectional Correlation", which I wrote for the special issue of _Multivariate Behavioral Research_ in honor of Peter Molenaar's work. You can find the manuscript [here](https://ellenhamaker.github.io/cross-sectional-correlation/HamakerMBR.pdf).
 
 Peter Molenaar showed that when ergodicity is absent--meaning that individuals are characterized by different means, variances, covariances, et cetera--the results obtained from cross-sectional data will not adequately reflect the patterns that exist at the individual level. 
 
