@@ -1,7 +1,7 @@
 ---
 title: "The Curious Case of the Cross-Sectional Correlation -- Supplementary Materials"
-author: "Ellen Hamaker"
-date: "November, 2022"
+author: "Ellen L. Hamaker | Methodology & Statistics | Faculty of Social and Behavioural Sciences | Utrecht University"
+date: "January 2023"
 mainfont: Arial
 fontsize: 12pt
 urlcolor: blue
